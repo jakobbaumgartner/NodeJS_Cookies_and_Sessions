@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +9,26 @@
 
 	<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 	<header>
 		<h1>JNOTES</h1>
 		<div id="id_button">{{id0}}</div>
 	</header>
-		<script>
-			document.getElementById("id_button").innerHTML = "Hello JavaScript!";
-		</script>
+	<script>
+		document.getElementById("id_button").innerHTML = "Hello JavaScript!";
+	</script>
 
 	<section class='main0'>
 		<aside id="list0">
-		<h1>JNotes</h1>
+			<ul class="listnaslovi">
+				{{#each listanaslovov}}
+				<li class="naslovlista">
+				{{this}}
+				<img class="delico" src="images/deleteicon.png" alt="X">
+				</li>
+				{{/each}}
+			</ul>
 		</aside>
 		<article id="note0">
 
@@ -33,4 +42,5 @@
 
 
 </body>
+
 </html>

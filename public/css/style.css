@@ -5,10 +5,12 @@ html, body {
 	padding: 0;
 	margin: 0;
 	height: 100%;
+	min-height: 100%;
+	max-height: 100%;
 }
 
 body {
-	background-color: #90caf9;
+	background-color: #b0bec5;
 	font-family: 'Allerta Stencil', sans-serif;
 	
 }
@@ -18,9 +20,9 @@ header {
 	border-width: 0;
 	padding: 0;
 	margin: 0;
-	background-color: #90caf9;
+	background-color: #b0bec5;
 	
-	border-bottom: 2vh solid #5d99c6;
+	border-bottom: 2vh solid #808e95;
 }
 
 h1 {
@@ -45,9 +47,9 @@ h1 {
 
 	height: 5vh; 
 	
-	background-color: #90caf9;
+	background-color: #b0bec5;
 	border-radius: 5px;
-	border: 0.2vh solid #5d99c6;
+	border: 0.2vh solid #b0bec5;
 	font-size: 4vh;
 	
 
@@ -66,14 +68,43 @@ h1 {
   #list0 {
 	  position: relative;
 	  float: left;
-	  border-right: 2vh solid #5d99c6;
-	  width: 30%;
+	  border-right: 2vh solid #808e95;
+	  width: 20%;
 	  height: 100%;
   }
+
+  .listnaslovi {
+
+	border: 0;
+	padding: 0;
+	margin: 0;
+
+	list-style-type: none;
+	width: 100%;
+
+	overflow: auto;
+
+  }
+
+  .naslovlista {
+	border: 0;
+	padding: 2vh 1vh 0 1vh;
+	margin: 0;
+	border-bottom: 0.2vh solid #808e95;
+
+  }
+
+
 
   #note0 {
 	position: relative;
 	float: left;
-	width: 68.8%;
+	width: 78.8%;
 	height: 100%;
+  }
+
+  .delico {
+	  width: 2.3vh;
+	  position: relative;
+	  float: right;
   }
