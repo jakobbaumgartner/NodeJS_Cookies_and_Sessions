@@ -1,0 +1,22 @@
+COOKIES
+
+--> Če ne uporabljamo cookies, so uporabniku specifični podatki izgubljeni, pri novem responsu-u. 
+
+--> Cookies so shranjeni v računalniku uporabnika.
+
+res.setHeader('Set-Cookie', 'spremenljivka=vrednost')
+
+--> Cookies so lahko spremenjeni in videni s strani uporabnika.
+
+-->Cookies so izgubljeni ob zaprtju brskalnika, razen če nastavimo nek Expires čas/datum. Potem obstajajo dlje 
+časa ali manj časa. Imamo tudi Max-age možnost. 
+
+-->Z Secure možnostjo nastavimo pošiljanje le preko HTTPS, z HttpOnly pa preprečimo brskalniku spreminjanje vsebine.
+
+SESSIONS
+
+--> shranjene server-side
+--> podatki so varni na serverju, pripadajo le enemu clientu, ki se identificira s pomočjo zakodiranega
+piškotka ... varno
+
+--> potrebujemo: express-session 

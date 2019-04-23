@@ -1,0 +1,29 @@
+{
+  "name": "nodejs_cookies_and_sessions",
+  "version": "1.0.0",
+  "description": "NodeJS Lection.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakobbaumgartner/NodeJS_Cookies_and_Sessions.git"
+  },
+  "author": "JB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakobbaumgartner/NodeJS_Cookies_and_Sessions/issues"
+  },
+  "homepage": "https://github.com/jakobbaumgartner/NodeJS_Cookies_and_Sessions#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "express-session": "^1.16.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}
