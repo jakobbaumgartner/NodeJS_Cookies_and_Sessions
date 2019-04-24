@@ -62,10 +62,12 @@ app.get('/', (req, res) => {
 
 
 
-	res.render('home', {id0: 'test', listanaslovov: listanaslovov});
+	res.render('home', {id0: '?', listanaslovov: listanaslovov});
 });
 
-
+app.post('/loginpage', (req, res) => {
+	res.render('login');
+});
 
 
 app.listen(3000, () => {

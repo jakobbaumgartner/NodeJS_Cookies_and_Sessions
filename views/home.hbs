@@ -13,11 +13,13 @@
 <body>
 	<header>
 		<h1>JNOTES</h1>
-		<div id="id_button">{{id0}}</div>
+		<div id="id_button">
+			<form action="/loginpage" method="POST">
+				<input type="submit" value="{{id0}}">
+			</form>
+			</div>
 	</header>
-	<script>
-		document.getElementById("id_button").innerHTML = "Hello JavaScript!";
-	</script>
+	
 
 	<section class='main0'>
 		<aside id="list0">
@@ -40,7 +42,7 @@
 
 
 
-
+<script type="text/javascript" src="jscript/loginbutton.js"></script>
 </body>
 
 </html>
