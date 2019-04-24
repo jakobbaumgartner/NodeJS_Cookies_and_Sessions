@@ -8,4 +8,4 @@ No help was provided by anyone, the work was autonomous.
 The puropose of this exercise was to try Sessions, Cookies and Handlebars. 
 (Mobile-first design and correct resizing was not a priority.)
 
-#What I Learned
+# What I Learned
