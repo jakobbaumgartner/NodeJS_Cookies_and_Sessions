@@ -99,7 +99,7 @@ h1 {
 	float: right;
 }
 
-	header form {
+header form {
 	background-color: rgba(0, 0, 255, 0);
 	width: 5vh;
 	height: 5vh;
@@ -138,34 +138,64 @@ header input {
 
 .forminputname {
 	font-size: 4vh;
-	background-color: #808e95;
+	background-color: #e2f1f8;
 }
 
 .buttonsubmit {
-	border-radius: 1px;
-	/* border: 0.3vh solid black; */
-
-	
-
 	height: 6vh;
 	width: 12vh;
 	font-size: 3vh;
 	margin: 5vh;
-
 	border: 0;
-
 	background-color: #808e95;
-
 }
 
 #leave {
 	position: fixed;
 	bottom: 0;
 	left: 0;
-
 	width: 15vh;
 }
 
 #leavebutton {
 	width: 15vh;
+}
+
+#naslovvrstica {
+	margin: 5vh auto;
+	width: 130vh;
+	height: 70vh;
+	;
+	border: 2vh solid #808e95;
+	text-align: center;
+}
+
+.vnosforma>input {
+	width: 125vh;
+}
+
+#naslovvnos {
+	height: 3vh;
+	background-color: #e2f1f8;
+}
+
+#vsebinavnos {
+	height: 30vh;
+	width: 125vh;
+	background-color: #e2f1f8;
+}
+
+#shrani {
+	margin: 3vh;
+	width: 30vh;
+	height: 7vh;
+}
+
+#shrani {
+	height: 6vh;
+	width: 15vh;
+	font-size: 3vh;
+	margin: 5vh;
+	border: 0;
+	background-color: #808e95;
 }
