@@ -7,54 +7,57 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>JNotes</title>
 
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 	<header>
 		<h1>JNOTES</h1>
 		<div id="id_button">
-			<form action="/loginpage" method="POST">
+			<form action="/loginpage" method="GET">
 				<input type="submit" value="{{id0}}">
 			</form>
-			</div>
+		</div>
 	</header>
-	
+
 
 	<section class='main0'>
 		<aside id="list0">
 			<ul class="listnaslovi">
 				{{#each listanaslovov}}
 				<li class="naslovlista">
-				{{this}}
-				<img class="delico" src="images/deleteicon.png" alt="X">
+					{{this}}
+					<img class="delico" src="/images/deleteicon.png" alt="X">
 				</li>
 				{{/each}}
 			</ul>
 		</aside>
 		<article id="note0">
 
-		<div id="naslovvrstica" class="clearfix">
-			<form action="/newnote" method="POST" class="vnosforma">
-				<h2>Naslov:</h2>
-				<input id="naslovvnos" type="text" name="naslov">
-				<h2>Vsebina:</h2>
-				<textarea id="vsebinavnos" name="vsebina">fsdfsdf</textarea>
-				<button id="shrani" type="submit">SHRANI</button>
-			</form>
+			<div id="naslovvrstica" class="clearfix">
+				<form action="/posodobi/shrani" method="POST" class="vnosforma">
+					<h2>Naslov:</h2>
+					<input id="naslovvnos" type="text" name="naslov">
+					<h2>Vsebina:</h2>
+					<textarea id="vsebinavnos" name="vsebina"></textarea>
+					<button id="shrani" type="submit">SHRANI</button>
+				</form>
 
-		</div>
+			</div>
 
 
 		</article>
 	</section>
 
+	<form action="/posodobi/newnote" method="get">
+		<button type="submit" id="newnotebutton">
+			<div id="newnote"><img src="/images/newnoteicon.png" alt="NEW"> </div>
+		</button>
+
+	</form>
 
 
-
-
-
-<script type="text/javascript" src="jscript/loginbutton.js"></script>
+	<script type="text/javascript" src="jscript/loginbutton.js"></script>
 </body>
 
 </html>

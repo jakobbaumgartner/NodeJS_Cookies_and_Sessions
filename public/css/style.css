@@ -124,6 +124,7 @@ header input {
 	width: 35%;
 	height: 75%;
 	border: 2vh solid #808e95;
+	border-radius: 5vh;
 }
 
 .center {
@@ -168,6 +169,7 @@ header input {
 	;
 	border: 2vh solid #808e95;
 	text-align: center;
+	border-radius: 5vh;
 }
 
 .vnosforma>input {
@@ -198,4 +200,27 @@ header input {
 	margin: 5vh;
 	border: 0;
 	background-color: #808e95;
+}
+
+#newnote {
+	position: fixed;
+	z-index: 10;
+	bottom: 3vh;
+	right: 3vh;
+
+	padding: 2vh;
+
+	background-color: #808e95;
+
+	border: 0.2vh solid black;
+	border-radius: 100%;
+}
+
+#newnote:hover {
+	background-color: #e2f1f8
+}
+
+#newnotebutton {
+	background: transparent;
+	border: 0;
 }
