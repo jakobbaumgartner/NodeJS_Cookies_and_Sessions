@@ -64,6 +64,7 @@ app.use('/posodobi', controllers.router)
 app.get('/', (req, res) => {
 
 	req.session.userId = 'fdfd'
+	req.session.newId = false
 
 	console.log('USERID = !!!!!!!!!!!! ' + req.session.userId)
 
@@ -93,21 +94,21 @@ app.get('/', (req, res) => {
 // login stran render
 app.get('/loginpage', (req, res) => {
 
+	var buttonlog = 'Login'
 	if(req.session.newId == true) {
-		var popmessage = ''}
-
+		buttonlog = 'CONFIRM'
+	}
 	else {
 		req.session.geslo = ''
 		req.session.ime = ''
-		req.session.userId = ''
+	}
 
-		}
-
+		
 
 	res.render('login', {
 		geslo: req.session.geslo,
 		ime: req.session.ime,
-		popupmessage: popmessage
+		buttonlog: buttonlog
 	});
 	
 	console.log('LOGIN RENDERED')

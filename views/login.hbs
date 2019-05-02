@@ -10,19 +10,20 @@
 	<link rel="stylesheet" href="css/style.css">
 	<script src="/dist/popupS.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/css/popupS.min.css">
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </head>
 
 <body>
 
 	<script>
+		if ()
 		var potrdi = window.confirm('Ustvarjate novega uporabnika, želite nadaljevati?')
 
-		
+
 		
 	</script>
 
-	{{{popupmessage}}}
 
 	<header>
 		<h1>JNOTES</h1>
@@ -39,7 +40,8 @@
 			<input class="forminputname" type="text" name="ime" value="{{ime}}"><br>
 			<p class="formname">Password</p><br>
 			<input class="forminputname" type="password" name="geslo" value="{{geslo}}"><br>
-			<input id="loginbutton" class="buttonsubmit" type="submit" value="LogIn">
+			<input id="loginbutton" class="buttonsubmit" type="submit" value="{{buttonlog}}">
+			<input type="hidden" id="confirm" name="confirm" value="{{buttonlog}}">
 
 		</form>
 

@@ -5,9 +5,7 @@ const sequelize = require('../database/database')
 const users = sequelize.define('users', {
 	// attributes
 	id: {
-		type: Sequelize.INTEGER,
-		autoIncrement: true,
-		allowNull: false, 
+		type: Sequelize.STRING,
 		primaryKey: true
 	},
 	ime: {

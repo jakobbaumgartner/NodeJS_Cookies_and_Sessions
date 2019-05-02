@@ -47,7 +47,6 @@ module.exports.clickLogin = (req, res) => {
 		var userexists = user
 
 		req.session.userId = HashId
-		req.session.newId = true
 		req.session.ime = req.body.ime
 		req.session.geslo = req.body.geslo
 
@@ -57,10 +56,26 @@ module.exports.clickLogin = (req, res) => {
 
 			//shrani v session info in se premakne na glavno stran
 			res.redirect('/');
+
 		}
 
 		else {
-			res.redirect('/loginpage');
+			if (req.body.confirm == 'CONFIRM') {
+				users.create({ id: HashId, ime: req.session.ime, geslo: req.session.geslo }).then(user => {
+					// you can now access the newly created task via the variable task
+					console.log('New user created:' + user)
+				})
+
+				res.redirect('/');
+			}
+
+
+			else {
+				req.session.newId = true
+				res.redirect('/loginpage');
+			}
+
+
 		}
 
 
