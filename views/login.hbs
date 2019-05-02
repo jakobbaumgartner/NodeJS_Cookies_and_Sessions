@@ -8,10 +8,22 @@
 	<title>JLogin</title>
 
 	<link rel="stylesheet" href="css/style.css">
+	<script src="/dist/popupS.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/popupS.min.css">
 
 </head>
 
 <body>
+
+	<script>
+		var potrdi = window.confirm('Ustvarjate novega uporabnika, želite nadaljevati?')
+
+		
+		
+	</script>
+
+	{{{popupmessage}}}
+
 	<header>
 		<h1>JNOTES</h1>
 
@@ -19,16 +31,18 @@
 
 	<section class='main0'>
 
+
 		<article id="loginwindow">
 
-		<form class="center" action="/loginuser" method="POST">
+		<form class="center" action="/posodobi/loginuser" method="POST">
 			<p class="formname">User_ID</p><br>
-			<input class="forminputname" type="text" name="userid"><br>
+			<input class="forminputname" type="text" name="ime" value="{{ime}}"><br>
 			<p class="formname">Password</p><br>
-			<input class="forminputname" type="text" name="geslo"><br>
+			<input class="forminputname" type="password" name="geslo" value="{{geslo}}"><br>
 			<input id="loginbutton" class="buttonsubmit" type="submit" value="LogIn">
 
 		</form>
+
 
 
 		</article>

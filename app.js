@@ -10,10 +10,11 @@ const sequelize = require('./database/database')
 const notes =  require('./models/notes')
 const users =  require('./models/users')
 const controllers = require('./controllers/modify')
+const logic = require('./controllers/logic')
 
 const app = express();
 
-
+// vzpostavimo modele v bazi
 
 sequelize.sync().then(result => {
 	console.log("SYNC INITIATED")
@@ -21,6 +22,7 @@ sequelize.sync().then(result => {
 	console.log(err)
 })
 
+// vzpostavimo session sistem in povežemo z mysql bazo
 
 app.use(session({
 	secret: 'keyboard cat',
@@ -32,12 +34,13 @@ app.use(session({
   }))
 
 
-
+// dataparser and static folder designation
 
 app.use(bodyparser.urlencoded({ extended: false }))
 
 app.use(express.static(path.join(__dirname, 'public')))
 
+// views engine settings
 
 app.engine(
   'hbs',
@@ -52,26 +55,7 @@ app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 
-
-
-var notesproto0 = [
-{naslov: "aaaaaaaaaaaaaaaaaaab"},
-{naslov: "Peter"},
-{naslov:"CEne"},
-{naslov: "aaaaaaaaaaaaaaaaaaab"},
-{naslov: "Peter"},
-{naslov:"CEne"},
-{naslov: "aaaaaaaaaaaaaaaaaaab"},
-{naslov: "Peter"},
-{naslov:"CEne"},
-{naslov: "aaaaaaaaaaaaaaaaaaab"},
-{naslov: "Peter"},
-{naslov:"CEne"},
-{naslov: "aaaaaaaaaaaaaaaaaaab"}
-
-
-
-]
+// user-input
 
 app.use('/posodobi', controllers.router)
 
@@ -79,14 +63,17 @@ app.use('/posodobi', controllers.router)
 //glavna stran render
 app.get('/', (req, res) => {
 
+	req.session.userId = 'fdfd'
 
-	req.session.id66 = "ratata"
-	console.log(req.session.id66)
+	console.log('USERID = !!!!!!!!!!!! ' + req.session.userId)
+
+	var checkS = logic.checkSession(req, res)
 
 	//skrajša dolžino naslovov za listo
 
 			var listanaslovov = new Array;
 	
+			var notesproto0 = new Array
 
 			for (let index = 0; index < notesproto0.length; index++) {
 				var trenutennaslov = (notesproto0[index].naslov).substring(0,20)
@@ -100,18 +87,34 @@ app.get('/', (req, res) => {
 				
 			}
 
-
-
-	res.render('home', {id0: '?', listanaslovov: listanaslovov});
-	console.log('HOME RENDERED')
-	req.session.ime = "Jakob"
 });
 
+
+// login stran render
 app.get('/loginpage', (req, res) => {
-	res.render('login');
+
+	if(req.session.newId == true) {
+		var popmessage = ''}
+
+	else {
+		req.session.geslo = ''
+		req.session.ime = ''
+		req.session.userId = ''
+
+		}
+
+
+	res.render('login', {
+		geslo: req.session.geslo,
+		ime: req.session.ime,
+		popupmessage: popmessage
+	});
+	
 	console.log('LOGIN RENDERED')
 });
 
+
+// server start 
 
 app.listen(3000, () => {
 	console.log(`SERVER STARTED`);

@@ -5,6 +5,7 @@ const Sequelize = require('sequelize')
 const sequelize = require('../database/database')
 const notes =  require('../models/notes')
 const users =  require('../models/users')
+const logic = require('../controllers/logic')
 
 
 router.get('/newnote', (req, res) => {
@@ -23,14 +24,10 @@ router.post('/shrani', (req, res) => {
 
 });
 
-function loggedincheck () {
-	if (userhashid = "") {
-		req.session.logedin = false
-		}
-	else {
-		req.session.logedin = true
-	}
-}
+router.post('/loginuser', (req, res) => {
+	logic.clickLogin(req, res)
+	console.log('ime: ' + req.body.ime + '     geslo: ' + req.body.geslo)
+});
 
 function skrajsaninaslovi () {
 	//skrajša dolžino naslovov za listo
@@ -51,5 +48,5 @@ function skrajsaninaslovi () {
 }
 
 module.exports.router = router 
-module.exports.loggedincheck = loggedincheck
+
 module.exports.skrajsaninaslovi = skrajsaninaslovi
