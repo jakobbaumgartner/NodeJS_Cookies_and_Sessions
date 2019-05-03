@@ -27,7 +27,7 @@
 				{{#each data}}
 				<li class="naslovlista">
 					<form action="/posodobi/odpri" method="post">
-						<input type="submit" name="chosenbutton" value="{{this.naslov}}">
+						<input class="list0class" type="submit" name="chosenbutton" value="{{this.naslov}}">
 						<input type="hidden" name="id" value="{{this.id}}">
 						<input type="image" class="delico" src="/images/deleteicon.png" border="0" alt="Submit" name="chosenbutton"/>
 					</form>

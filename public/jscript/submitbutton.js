@@ -7,25 +7,25 @@ var leavebutton = document.getElementById('leavebutton')
 // console.log(leavebutton)
 
 // button.onmouseover = () => {
-// 	button.style.backgroundColor = "#e2f1f8";
+// 	button.style.backgroundColor = "#f5f5f5";
 // }
 
 // button.onmouseleave = () => {
-// 	button.style.backgroundColor = "#b0bec5"
+// 	button.style.backgroundColor = "#03a9f4"
 // }
 
 loginbutton.onmouseover = () => {
-	loginbutton.style.backgroundColor = "#e2f1f8";
+	loginbutton.style.backgroundColor = "#f5f5f5";
 }
 
 loginbutton.onmouseleave = () => {
-	loginbutton.style.backgroundColor = "#808e95"
+	loginbutton.style.backgroundColor = "#007ac1"
 }
 
 leavebutton.onmouseover = () => {
-	leavebutton.style.backgroundColor = "#e2f1f8";
+	leavebutton.style.backgroundColor = "#f5f5f5";
 }
 
 leavebutton.onmouseleave = () => {
-	leavebutton.style.backgroundColor = "#808e95"
+	leavebutton.style.backgroundColor = "#007ac1"
 }

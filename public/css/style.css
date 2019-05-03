@@ -9,7 +9,7 @@ html, body {
 }
 
 body {
-	background-color: #b0bec5;
+	background-color: #03a9f4;
 	font-family: 'Allerta Stencil', sans-serif;
 }
 
@@ -18,8 +18,8 @@ header {
 	border-width: 0;
 	padding: 0;
 	margin: 0;
-	background-color: #b0bec5;
-	border-bottom: 2vh solid #808e95;
+	background-color: #03a9f4;
+	border-bottom: 2vh solid #007ac1;
 }
 
 .accico {
@@ -43,7 +43,7 @@ h1 {
 	position: relative;
 	float: right;
 	height: 5vh;
-	background-color: #b0bec5;
+	background-color: #03a9f4;
 	border-radius: 5px;
 	border: 0.2vh solid black;
 	font-size: 4vh;
@@ -65,7 +65,7 @@ h1 {
 #list0 {
 	position: relative;
 	float: left;
-	border-right: 2vh solid #808e95;
+	border-right: 2vh solid #007ac1;
 	width: 20%;
 	height: 100%;
 }
@@ -83,7 +83,7 @@ h1 {
 	border: 0;
 	padding: 2vh 1vh 0 1vh;
 	margin: 0;
-	border-bottom: 0.2vh solid #808e95;
+	border-bottom: 0.2vh solid #67daff;
 }
 
 #note0 {
@@ -123,7 +123,7 @@ header input {
 	margin: 3.5% auto;
 	width: 35%;
 	height: 75%;
-	border: 2vh solid #808e95;
+	border: 2vh solid #007ac1;
 	border-radius: 5vh;
 }
 
@@ -139,7 +139,7 @@ header input {
 
 .forminputname {
 	font-size: 4vh;
-	background-color: #e2f1f8;
+	background-color: #f5f5f5;
 }
 
 .buttonsubmit {
@@ -148,7 +148,7 @@ header input {
 	font-size: 3vh;
 	margin: 5vh;
 	border: 0;
-	background-color: #808e95;
+	background-color: #007ac1;
 }
 
 #leave {
@@ -167,7 +167,7 @@ header input {
 	width: 130vh;
 	height: 70vh;
 	;
-	border: 2vh solid #808e95;
+	border: 2vh solid #007ac1;
 	text-align: center;
 	border-radius: 5vh;
 }
@@ -178,13 +178,13 @@ header input {
 
 #naslovvnos {
 	height: 3vh;
-	background-color: #e2f1f8;
+	background-color: #f5f5f5;
 }
 
 #vsebinavnos {
 	height: 30vh;
 	width: 125vh;
-	background-color: #e2f1f8;
+	background-color: #f5f5f5;
 }
 
 #shrani {
@@ -199,7 +199,7 @@ header input {
 	font-size: 3vh;
 	margin: 5vh;
 	border: 0;
-	background-color: #808e95;
+	background-color: #007ac1;
 }
 
 #newnote {
@@ -210,17 +210,26 @@ header input {
 
 	padding: 2vh;
 
-	background-color: #808e95;
+	background-color: #67daff;
 
 	border: 0.2vh solid black;
 	border-radius: 100%;
 }
 
 #newnote:hover {
-	background-color: #e2f1f8
+	background-color: #f5f5f5;
 }
 
 #newnotebutton {
 	background: transparent;
 	border: 0;
+}
+
+.list0class {
+	background-color: transparent;
+	border: 0;
+}
+
+.naslovlista:hover {
+	background-color: #f5f5f5;
 }

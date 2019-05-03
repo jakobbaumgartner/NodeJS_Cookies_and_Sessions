@@ -3,19 +3,19 @@ var shrani =  document.getElementById('shrani')
 
 
 button.onmouseover = () => {
-	button.style.backgroundColor = "#e2f1f8";
+	button.style.backgroundColor = "#f5f5f5";
 }
 
 button.onmouseleave = () => {
-	button.style.backgroundColor = "#b0bec5"
+	button.style.backgroundColor = "#03a9f4"
 }
 
 
 shrani.onmouseover = () => {
-	shrani.style.backgroundColor = "#e2f1f8";
+	shrani.style.backgroundColor = "#f5f5f5";
 }
 
 shrani.onmouseleave = () => {
-	shrani.style.backgroundColor = "#808e95"
+	shrani.style.backgroundColor = "#007ac1"
 }
 
