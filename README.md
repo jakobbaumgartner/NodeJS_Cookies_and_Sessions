@@ -22,4 +22,6 @@ The puropose of this exercise was to try Sessions, Cookies and Handlebars.
 -> BodyParser </br>
 -> ...
 
+# What I could fix:
 
+I could make better comments, I could make more structured approach. Better plan in advance. I could spend more time on design of frontend. Maybe add a logout button.
