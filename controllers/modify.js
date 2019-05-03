@@ -10,6 +10,7 @@ const logic = require('../controllers/logic')
 
 
 router.get('/newnote', (req, res) => {
+	// ustvarjamo nov zapis
 	req.session.newnotetrue = true
 	req.session.opennote = ''
 	logic.checkSession(req, res)
@@ -19,11 +20,15 @@ router.get('/newnote', (req, res) => {
 });
 
 router.post('/shrani', (req, res) => {
+	// posodabljamo ali ustvarjamo zapis, gumb shrani
 	console.log('naslov ---->>>>>' + req.session.opennote)
 	if (req.body.naslov != '') {
+		// prevermimo, da ni naslovna vrstica prazna
 
 		if (req.session.opennote != '') {
+			// preverimo, če gre za nov zapis ali posodobitev odprtega zapisa
 
+			//posodobimo:
 			notes.findOne({
 				where: {
 					id: req.session.opennote,
@@ -49,6 +54,8 @@ router.post('/shrani', (req, res) => {
 		}
 
 		else {
+			// ustvarimo novo
+
 			console.log('------->>>' + req.session.userId)
 			notes.create({ naslov: req.body.naslov, tekst: req.body.vsebina, userId: req.session.userId })
 
@@ -66,6 +73,7 @@ router.post('/shrani', (req, res) => {
 });
 
 router.post('/loginuser', (req, res) => {
+	// gumb login
 	req.session.opennote = ''
 	logic.clickLogin(req, res)
 	console.log('ime: ' + req.body.ime + '     geslo: ' + req.body.geslo)
@@ -73,6 +81,7 @@ router.post('/loginuser', (req, res) => {
 
 router.post('/odpri', (req, res) => {
 
+	// odpremo staro sporočilo ali ga izbrišemo
 	console.log("BODYLOG")
 	console.log(req.body.id)
 	console.log(req.body.chosenbutton)
@@ -80,6 +89,9 @@ router.post('/odpri', (req, res) => {
 	req.session.opennote = req.body.id
 
 	if (req.body.chosenbutton != undefined) {
+
+		// izberemo in odpremo
+
 		console.log('not undefined')
 
 		notes.findOne({
@@ -100,6 +112,7 @@ router.post('/odpri', (req, res) => {
 	}
 
 	else {
+		// brišemo
 
 		notes.destroy({
 			where: {
@@ -117,26 +130,6 @@ router.post('/odpri', (req, res) => {
 
 
 });
-
-// function skrajsaninaslovi () {
-// 	//skrajša dolžino naslovov za listo
-
-// 	var listanaslovov = new Array;
-
-
-// 	for (let index = 0; index < notesproto0.length; index++) {
-// 		var trenutennaslov = (notesproto0[index].naslov).substring(0,20)
-
-// 		if (((notesproto0[index].naslov).length) > 20) {
-// 			trenutennaslov = trenutennaslov + "..."
-// 		}
-
-// 		listanaslovov.push(trenutennaslov)
-
-// 	}
-// }
-
-// module.exports.skrajsaninaslovi = skrajsaninaslovi
 
 
 module.exports.router = router

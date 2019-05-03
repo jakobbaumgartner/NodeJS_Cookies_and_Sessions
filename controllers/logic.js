@@ -11,11 +11,13 @@ const notes = require('../models/notes')
 const users = require('../models/users')
 const controllers = require('../controllers/modify')
 
+
+
 module.exports.checkSession = (req, res) => {
 	var userId = req.session.userId
 	var userData = null
 
-
+	// preveri, če je user prijavljen
 	if (userId != null) {
 
 		userData = notes.findAll({
@@ -27,11 +29,12 @@ module.exports.checkSession = (req, res) => {
 
 			console.log('HOME RENDERED')
 			
-			// var datafine = this.createViewsData(data)
+		
 			console.log(req.session.notetekst)
 			console.log(req.body.newnotetrue)
 
 			if (req.session.newnotetrue == true) {
+				// ustvarjamo nov zapis
 				req.session.newnotetrue = false
 				req.session.notenaslov = ''
 				req.session.notetekst = ''
@@ -62,9 +65,11 @@ module.exports.clickLogin = (req, res) => {
 	var geslo = req.body.geslo
 	// search for attributes
 	users.findOne({ where: { id: HashId } }).then(user => {
+		// preverimo če uporabnik obstaja
 		// user will be the first entry of the users table with the id 'HashId' || null
 		var userexists = user
 
+		// shranimo uporabnika v session
 		req.session.userId = HashId
 		req.session.ime = req.body.ime
 		req.session.geslo = req.body.geslo
@@ -80,6 +85,8 @@ module.exports.clickLogin = (req, res) => {
 
 		else {
 			if (req.body.confirm == 'CONFIRM') {
+				// če se zatipkamo ali ustvarjamo novega uporabnika moramo še enkrat potrditi, 
+				// nato ustvarimo novega uporabnika
 				users.create({ id: HashId, ime: req.session.ime, geslo: req.session.geslo }).then(user => {
 					// you can now access the newly created task via the variable task
 					console.log('New user created:' + user)
@@ -102,24 +109,4 @@ module.exports.clickLogin = (req, res) => {
 
 
 }
-
-// module.exports.createViewsData = (data) => {
-
-// 	// funkcija predela dobljena sporočila v tri objekte arraya ( naslovi in vsebine in id), 
-// 	// ki jih returna v skupnem arrayu
-
-// 	var length0 = data.length
-
-// 	var naslovi = []
-// 	var vsebine = []
-// 	var id = []
-
-// 	for( var x = 0; x < length0; x++ ) {
-// 		naslovi.push(data[x].naslov)
-// 		vsebine.push(data[x].tekst)
-// 		id.push(data[x].id)
-// 	}
-
-// 	return [naslovi, vsebine, id]
-// }
 
