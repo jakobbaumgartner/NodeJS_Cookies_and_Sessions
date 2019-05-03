@@ -19,6 +19,7 @@ router.get('/newnote', (req, res) => {
 });
 
 router.post('/shrani', (req, res) => {
+	console.log('naslov ---->>>>>' + req.session.opennote)
 	if (req.body.naslov != '') {
 
 		if (req.session.opennote != '') {
@@ -48,7 +49,7 @@ router.post('/shrani', (req, res) => {
 		}
 
 		else {
-
+			console.log('------->>>' + req.session.userId)
 			notes.create({ naslov: req.body.naslov, tekst: req.body.vsebina, userId: req.session.userId })
 
 			res.redirect('/');
@@ -65,6 +66,7 @@ router.post('/shrani', (req, res) => {
 });
 
 router.post('/loginuser', (req, res) => {
+	req.session.opennote = ''
 	logic.clickLogin(req, res)
 	console.log('ime: ' + req.body.ime + '     geslo: ' + req.body.geslo)
 });
