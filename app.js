@@ -67,7 +67,6 @@ app.get('/', (req, res) => {
 
 	req.session.newId = false
 
-	console.log('USERID = !!!!!!!!!!!! ' + req.session.userId)
 
 	var checkS = logic.checkSession(req, res)
 

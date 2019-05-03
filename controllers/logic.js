@@ -27,8 +27,8 @@ module.exports.checkSession = (req, res) => {
 
 			console.log('HOME RENDERED')
 			
-			var datafine = this.createViewsData(data)
-			console.log(req.session.notenaslov)
+			// var datafine = this.createViewsData(data)
+			console.log(req.session.notetekst)
 			console.log(req.body.newnotetrue)
 
 			if (req.session.newnotetrue == true) {
@@ -37,7 +37,8 @@ module.exports.checkSession = (req, res) => {
 				req.session.notetekst = ''
 			}
 
-			console.log('ime  ' + req.session.ime + '  geslo  ' + req.session.geslo + ' data ' + data)
+			console.log('NEWIDDD: ' + req.session.opennote)
+			console.log(req.session.notenaslov)
 			res.render('home', { id0: req.session.ime , data: data, naslovpolje: req.session.notenaslov, tekstpolje: req.session.notetekst});
 
 
@@ -102,23 +103,23 @@ module.exports.clickLogin = (req, res) => {
 
 }
 
-module.exports.createViewsData = (data) => {
+// module.exports.createViewsData = (data) => {
 
-	// funkcija predela dobljena sporočila v tri objekte arraya ( naslovi in vsebine in id), 
-	// ki jih returna v skupnem arrayu
+// 	// funkcija predela dobljena sporočila v tri objekte arraya ( naslovi in vsebine in id), 
+// 	// ki jih returna v skupnem arrayu
 
-	var length0 = data.length
+// 	var length0 = data.length
 
-	var naslovi = []
-	var vsebine = []
-	var id = []
+// 	var naslovi = []
+// 	var vsebine = []
+// 	var id = []
 
-	for( var x = 0; x < length0; x++ ) {
-		naslovi.push(data[x].naslov)
-		vsebine.push(data[x].tekst)
-		id.push(data[x].id)
-	}
+// 	for( var x = 0; x < length0; x++ ) {
+// 		naslovi.push(data[x].naslov)
+// 		vsebine.push(data[x].tekst)
+// 		id.push(data[x].id)
+// 	}
 
-	return [naslovi, vsebine, id]
-}
+// 	return [naslovi, vsebine, id]
+// }
 

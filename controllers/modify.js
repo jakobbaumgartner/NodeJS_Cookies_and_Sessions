@@ -1,30 +1,65 @@
 const express = require('express')
 const router = express.Router()
-const bodyparser =  require('body-parser')
+const bodyparser = require('body-parser')
 const path = require('path')
 const Sequelize = require('sequelize')
 const sequelize = require('../database/database')
-const notes =  require('../models/notes')
-const users =  require('../models/users')
+const notes = require('../models/notes')
+const users = require('../models/users')
 const logic = require('../controllers/logic')
 
 
 router.get('/newnote', (req, res) => {
 	req.session.newnotetrue = true
+	req.session.opennote = ''
 	logic.checkSession(req, res)
+
 
 
 });
 
 router.post('/shrani', (req, res) => {
-	if(req.body.naslov != '') {
-			
-				
-				notes.create({naslov: req.body.naslov, tekst: req.body.vsebina, userId: req.session.userId})
-				console.log('WESAVEDIT')
+	if (req.body.naslov != '') {
 
-				 res.redirect('/');
-			
+		if (req.session.opennote != '') {
+
+			notes.findOne({
+				where: {
+					id: req.session.opennote,
+					userId: req.session.userId
+				}}).then(note => {
+					note.update({
+						naslov: req.body.naslov,
+						tekst: req.body.vsebina
+					})
+
+					req.session.notenaslov = req.body.naslov
+					req.session.notetekst = req.body.vsebina
+					console.log(req.body.vsebina + '   ' + req.session.notetekst)
+					
+					
+					console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!=================')
+
+					res.redirect('/');
+					
+				})
+				
+
+		}
+
+		else {
+
+			notes.create({ naslov: req.body.naslov, tekst: req.body.vsebina, userId: req.session.userId })
+
+			res.redirect('/');
+		}
+
+	
+
+	}
+
+	else {
+		res.redirect('/');
 	}
 
 });
@@ -42,7 +77,7 @@ router.post('/odpri', (req, res) => {
 
 	req.session.opennote = req.body.id
 
-	if (req.body.chosenbutton != undefined ) {
+	if (req.body.chosenbutton != undefined) {
 		console.log('not undefined')
 
 		notes.findOne({
@@ -52,9 +87,9 @@ router.post('/odpri', (req, res) => {
 			raw: true
 		}).then(note => {
 
-			
+
 			req.session.notetekst = note.tekst
-		
+
 			req.session.notenaslov = note.naslov
 
 			res.redirect('/');
@@ -63,47 +98,46 @@ router.post('/odpri', (req, res) => {
 	}
 
 	else {
-		
+
 		notes.destroy({
 			where: {
-			  id: req.body.id
+				id: req.body.id
 			}
-		  }).then(() => {
+		}).then(() => {
 			console.log("Note Destroyed.");
-			
+
 			req.session.notetekst = ''
-			
+
 			req.session.notenaslov = ''
 			res.redirect('/');
-		  });
+		});
 	}
 
-	
+
 });
 
-function skrajsaninaslovi () {
-	//skrajša dolžino naslovov za listo
+// function skrajsaninaslovi () {
+// 	//skrajša dolžino naslovov za listo
 
-	var listanaslovov = new Array;
-	
-
-	for (let index = 0; index < notesproto0.length; index++) {
-		var trenutennaslov = (notesproto0[index].naslov).substring(0,20)
-
-		if (((notesproto0[index].naslov).length) > 20) {
-			trenutennaslov = trenutennaslov + "..."
-		}
-
-		listanaslovov.push(trenutennaslov)
-	
-	}
-}
+// 	var listanaslovov = new Array;
 
 
+// 	for (let index = 0; index < notesproto0.length; index++) {
+// 		var trenutennaslov = (notesproto0[index].naslov).substring(0,20)
+
+// 		if (((notesproto0[index].naslov).length) > 20) {
+// 			trenutennaslov = trenutennaslov + "..."
+// 		}
+
+// 		listanaslovov.push(trenutennaslov)
+
+// 	}
+// }
+
+// module.exports.skrajsaninaslovi = skrajsaninaslovi
 
 
-module.exports.router = router 
+module.exports.router = router
 
 
 
-module.exports.skrajsaninaslovi = skrajsaninaslovi
