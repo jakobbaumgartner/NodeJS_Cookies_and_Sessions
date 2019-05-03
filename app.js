@@ -83,12 +83,7 @@ app.get('/loginpage', (req, res) => {
 	if(req.session.newId == true) {
 		buttonlog = 'CONFIRM'
 	}
-	else {
-		req.session.geslo = ''
-		req.session.ime = ''
-	}
-
-		
+			
 
 	res.render('login', {
 		geslo: req.session.geslo,

@@ -37,7 +37,8 @@ module.exports.checkSession = (req, res) => {
 				req.session.notetekst = ''
 			}
 
-			res.render('home', { id0: '?', data: data, naslovpolje: req.session.notenaslov, tekstpolje: req.session.notetekst});
+			console.log('ime  ' + req.session.ime + '  geslo  ' + req.session.geslo + ' data ' + data)
+			res.render('home', { id0: req.session.ime , data: data, naslovpolje: req.session.notenaslov, tekstpolje: req.session.notetekst});
 
 
 		})
