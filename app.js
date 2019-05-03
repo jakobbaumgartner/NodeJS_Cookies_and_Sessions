@@ -16,6 +16,8 @@ const app = express();
 
 // vzpostavimo modele v bazi
 
+users.hasMany(notes)
+
 sequelize.sync().then(result => {
 	console.log("SYNC INITIATED")
 }).catch(err => {
@@ -63,30 +65,13 @@ app.use('/posodobi', controllers.router)
 //glavna stran render
 app.get('/', (req, res) => {
 
-	req.session.userId = 'fdfd'
 	req.session.newId = false
 
 	console.log('USERID = !!!!!!!!!!!! ' + req.session.userId)
 
 	var checkS = logic.checkSession(req, res)
 
-	//skrajša dolžino naslovov za listo
-
-			var listanaslovov = new Array;
-	
-			var notesproto0 = new Array
-
-			for (let index = 0; index < notesproto0.length; index++) {
-				var trenutennaslov = (notesproto0[index].naslov).substring(0,20)
-
-				if (((notesproto0[index].naslov).length) > 20) {
-					trenutennaslov = trenutennaslov + "..."
-				}
-
-				listanaslovov.push(trenutennaslov)
 			
-				
-			}
 
 });
 

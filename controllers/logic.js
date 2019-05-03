@@ -20,12 +20,21 @@ module.exports.checkSession = (req, res) => {
 
 		userData = notes.findAll({
 			where: {
-				id: userId
-			}
-		});
+				userId: userId
+			},
+			raw: true
+		}).then(data => {
 
-		res.render('home', { id0: '?', listanaslovov: [] });
-		console.log('HOME RENDERED')
+			console.log('HOME RENDERED')
+			console.log(data)
+			var datafine = this.createViewsData(data)
+
+			res.render('home', { id0: '?', data: data});
+
+
+		})
+
+
 	}
 
 	else {
@@ -83,3 +92,24 @@ module.exports.clickLogin = (req, res) => {
 
 
 }
+
+module.exports.createViewsData = (data) => {
+
+	// funkcija predela dobljena sporočila v tri objekte arraya ( naslovi in vsebine in id), 
+	// ki jih returna v skupnem arrayu
+
+	var length0 = data.length
+
+	var naslovi = []
+	var vsebine = []
+	var id = []
+
+	for( var x = 0; x < length0; x++ ) {
+		naslovi.push(data[x].naslov)
+		vsebine.push(data[x].tekst)
+		id.push(data[x].id)
+	}
+
+	return [naslovi, vsebine, id]
+}
+

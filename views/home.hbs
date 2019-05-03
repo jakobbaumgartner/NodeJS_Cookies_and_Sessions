@@ -24,14 +24,21 @@
 	<section class='main0'>
 		<aside id="list0">
 			<ul class="listnaslovi">
-				{{#each listanaslovov}}
+				{{#each data}}
 				<li class="naslovlista">
-					{{this}}
-					<img class="delico" src="/images/deleteicon.png" alt="X">
+					<form action="/posodobi/odpri" method="post">
+						<input type="submit" name="chosenbutton" value="{{this.naslov}}">
+						<input type="hidden" name="id" value="{{this.id}}">
+						<input type="image" class="delico" src="/images/deleteicon.png" border="0" alt="Submit" name="chosenbutton"/>
+					</form>
+					
 				</li>
 				{{/each}}
 			</ul>
 		</aside>
+
+
+
 		<article id="note0">
 
 			<div id="naslovvrstica" class="clearfix">
