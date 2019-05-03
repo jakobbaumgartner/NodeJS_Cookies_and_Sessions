@@ -26,10 +26,18 @@ module.exports.checkSession = (req, res) => {
 		}).then(data => {
 
 			console.log('HOME RENDERED')
-			console.log(data)
+			
 			var datafine = this.createViewsData(data)
+			console.log(req.session.notenaslov)
+			console.log(req.body.newnotetrue)
 
-			res.render('home', { id0: '?', data: data});
+			if (req.session.newnotetrue == true) {
+				req.session.newnotetrue = false
+				req.session.notenaslov = ''
+				req.session.notetekst = ''
+			}
+
+			res.render('home', { id0: '?', data: data, naslovpolje: req.session.notenaslov, tekstpolje: req.session.notetekst});
 
 
 		})

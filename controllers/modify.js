@@ -10,8 +10,10 @@ const logic = require('../controllers/logic')
 
 
 router.get('/newnote', (req, res) => {
-	res.render('home', 
-	{id0: '', listanaslovov: ''});
+	req.session.newnotetrue = true
+	logic.checkSession(req, res)
+
+
 });
 
 router.post('/shrani', (req, res) => {
@@ -42,20 +44,41 @@ router.post('/odpri', (req, res) => {
 
 	if (req.body.chosenbutton != undefined ) {
 		console.log('not undefined')
+
+		notes.findOne({
+			where: {
+				id: req.body.id
+			},
+			raw: true
+		}).then(note => {
+
+			
+			req.session.notetekst = note.tekst
+		
+			req.session.notenaslov = note.naslov
+
+			res.redirect('/');
+		})
+
 	}
 
 	else {
-		console.log('undefineddddd')
+		
 		notes.destroy({
 			where: {
 			  id: req.body.id
 			}
 		  }).then(() => {
 			console.log("Note Destroyed.");
+			
+			req.session.notetekst = ''
+			
+			req.session.notenaslov = ''
+			res.redirect('/');
 		  });
 	}
 
-	 res.redirect('/');
+	
 });
 
 function skrajsaninaslovi () {

@@ -44,9 +44,9 @@
 			<div id="naslovvrstica" class="clearfix">
 				<form action="/posodobi/shrani" method="POST" class="vnosforma">
 					<h2>Naslov:</h2>
-					<input id="naslovvnos" type="text" name="naslov">
+					<input id="naslovvnos" type="text" name="naslov" value="{{naslovpolje}}">
 					<h2>Vsebina:</h2>
-					<textarea id="vsebinavnos" name="vsebina"></textarea>
+					<textarea id="vsebinavnos" name="vsebina">{{tekstpolje}}</textarea>
 					<button id="shrani" type="submit">SHRANI</button>
 				</form>
 
@@ -57,6 +57,7 @@
 	</section>
 
 	<form action="/posodobi/newnote" method="get">
+		
 		<button type="submit" id="newnotebutton">
 			<div id="newnote"><img src="/images/newnoteicon.png" alt="NEW"> </div>
 		</button>
