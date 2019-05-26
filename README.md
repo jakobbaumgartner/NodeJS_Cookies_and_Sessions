@@ -1,5 +1,4 @@
 # NodeJS_Cookies_and_Sessions
-NodeJS Lection.
 
 This is a simple project, using NodeJS, Express, Sequelize, Sessions and others, designed to repeat new concepts learned. 
 
